@@ -1,0 +1,11 @@
+{
+	tagSets:
+	{
+	Application Group : [Brainworks],
+	Environment : [Development],
+	Location : [DOC],
+	Platform Family : [Windows],
+	Policy : [PCI],
+	Primary Function : [File Server]
+	}
+}
