@@ -1,0 +1,17 @@
+---
+- hosts: "{{ group }}"
+  become: yes
+  serial: 100
+  gather_facts: smart
+  tasks:
+
+  - name: get current software channels
+    command: yum -v repolist
+    register: channel_list
+
+  - name: display channel channel_list
+    debug:
+      msg: "{{ channel_list.stdout_lines }}"
+
+  - name: copy file locally
+    local_action: copy content={{ channel_list.stdout_lines }} dest=/home/tmoroz@us.ad.gannett.com/output/{{ inventory_hostname }}_sofware_channels
